@@ -31,7 +31,7 @@ def main():
     optimizer = optim.Adam(net.parameters(), lr=learning_rate)
 
     # training
-    num_epochs = 30
+    num_epochs = 10
     net_trained = train_model(net, dataloaders_dict, criterion, optimizer, num_epochs)
 
     # save trained model
