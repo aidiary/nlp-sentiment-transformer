@@ -50,11 +50,8 @@ def create_dataloader(max_length=256, batch_size=24):
     # ボキャブラリのセット
     # この時点では単語IDを返すだけでベクトル表現は使われない（メモリ効率のため）
     english_fasttext_vectors = Vectors(name='./data/wiki-news-300d-1M.vec')
-    print(english_fasttext_vectors.dim)
-    print(len(english_fasttext_vectors))
 
     TEXT.build_vocab(train_ds, vectors=english_fasttext_vectors, min_freq=10)
-    print(TEXT.vocab.vectors.shape)
 
     train_dl = torchtext.data.Iterator(train_ds, batch_size, train=True)
     val_dl = torchtext.data.Iterator(val_ds, batch_size, train=False, sort=False)

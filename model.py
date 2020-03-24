@@ -25,8 +25,8 @@ class PositionalEncoder(nn.Module):
 
         pe = torch.zeros(max_seq_len, d_model)
 
-        # device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
-        # pe = pe.to(device)
+        device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+        pe = pe.to(device)
 
         for pos in range(max_seq_len):
             for i in range(0, d_model, 2):
